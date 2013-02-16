@@ -1,5 +1,7 @@
 <?php
 
+require 'config.php';
+
 function isValidEmail($email){
     return preg_match("/^[_a-z0-9-]+(\.[_a-z0-9+-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $email);
 }
@@ -16,7 +18,6 @@ if(intval($plz)) {
 } else {$error = "Bitte korrekte PLZ eingeben!";}
 
 if(isValidEmail($mail)) {
-	
 } else {$error = "Bitte korrekte E-Mail-Adresse eingeben!";}
 
 if($newsletter){
@@ -31,6 +32,13 @@ if($newsletter){
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
 	curl_exec($ch);
 }
+
+$connection = mysql_connect($mysql_host,$mysql_user,$mysql_pw);
+
+mysql_select_db("uesammler", $connection);
+$new_ue = mysql_query("INSERT INTO uesammler.ue (plz, email, contact) VALUES ($plz, $mail, mysql_real_escape_string($contact));");
+
+mysql_close($connection);
 
 end:
 ?>
