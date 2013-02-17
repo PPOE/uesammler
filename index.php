@@ -32,13 +32,17 @@ if($newsletter){
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
 	curl_exec($ch);
 }
+        $contact = pg_escape_string($contact);
+        $mail = pg_escape_string($mail);
+        echo $contact;
+        $query = "INSERT INTO ues (plz, email, comment) VALUES ($plz, '$mail', '$contact');";
+  
+        $result = pg_query($dbconn, $query) or die('Einragung fehlgeschlagen: ' . pg_last_error());
 
-$connection = mysql_connect($mysql_host,$mysql_user,$mysql_pw);
+//$new_ue = mysql_query(
+//        "INSERT INTO ues (plz, email, comment) VALUES ($plz, $mail, mysql_real_escape_string($contact));");
 
-mysql_select_db("uesammler", $connection);
-$new_ue = mysql_query("INSERT INTO uesammler.ue (plz, email, contact) VALUES ($plz, $mail, mysql_real_escape_string($contact));");
-
-mysql_close($connection);
+    pg_close($dbconn);
 
 end:
 ?>
@@ -152,7 +156,9 @@ end:
       </div>
 
       <hr>
-
+<?php
+include 'diagrams.php';
+?>
     </div> <!-- /container -->
     </div> <!-- #white-container -->
 
