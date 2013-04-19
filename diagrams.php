@@ -57,12 +57,23 @@ $dbconn = pg_connect("dbname=uesammler")
                 die('Zuordnung zu Bundesländern fehlgeschlagen'.$i);
         }
         $query = "select count(*) from 
-( select ues.plz, plzlut.bereich from ues, plzlut where plzlut.plz = ues.plz and plzlut.bereich = '$qwhere') as newtable;";
+( select ues.plz, plzlut.bereich  from ues, plzlut where plzlut.plz = ues.plz and plzlut.bereich = '$qwhere') as newtable;";
         $result = pg_query($query) or die('Abfrage in plzlut fehlgeschlagen: ' . pg_last_error());
         $line = pg_fetch_array($result);
 
          $score = $line[0];
-         
+
+        $query = "select sum(count) from 
+( select ues.plz, plzlut.bereich, ues.count from ues, plzlut where plzlut.plz = ues.plz and plzlut.bereich = '$qwhere') as newtable;";
+        $result = pg_query($query) or die('Abfrage in plzlut fehlgeschlagen: ' . pg_last_error());
+        $line = pg_fetch_array($result);
+
+	if ($line[0] != "") {
+		$score_count = $line[0];
+	} else {
+		$score_count = 0;
+	}
+
                  $query = "select collected, req from uestat where bereich='$qwhere';";
         $result = pg_query($query) or die('Abfrage in uestat fehlgeschlagen: ' . pg_last_error());
         $line = pg_fetch_array($result);
@@ -72,7 +83,7 @@ $dbconn = pg_connect("dbname=uesammler")
          
          ///Create array structure to write out to javascript
         /// name, wievielePledges, wievieleGesammelt?, wievieleBenötigt?
-         $sPLZs .= "['".$where."', ".$score.", ".$collected.", ".$req."],";
+         $sPLZs .= "['".$where."', ".$score.", ".$score_count.", ".$collected.", ".$req."],";
 //        echo $where . ": ";
 //        echo $score;
 //        echo "<br/>";
@@ -100,9 +111,10 @@ $dbconn = pg_connect("dbname=uesammler")
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'PLZ');
-        data.addColumn('number', 'registered');
-        data.addColumn('number', 'collected');
-        data.addColumn('number', 'required');
+        data.addColumn('number', 'eingetragen');
+	data.addColumn('number', 'eingetragen und versprochen');
+        data.addColumn('number', 'bei uns eingelangt');
+        data.addColumn('number', 'benötigt');
         data.addRows([
             <?php //
             echo $sPLZs;
@@ -119,5 +131,4 @@ $dbconn = pg_connect("dbname=uesammler")
         chart.draw(data, options);
       }
     </script>
-    <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+    <div id="chart_div" style="margin-left: 100px;"></div>

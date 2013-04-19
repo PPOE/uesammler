@@ -1,5 +1,8 @@
 <?php
 
+$h1 = '        <h1>Unterstütze die Piraten!</h1>
+        <p class="lead">Um bei den nächsten Wahlen antreten zu können brauchen die Piraten deine Unterstützung!</p>';
+
 require 'config.php';
 
 function isValidEmail($email){
@@ -8,17 +11,30 @@ function isValidEmail($email){
 
 if($_POST['submit'] != "true") {goto end;}
 
-$plz = $_POST['plz'];
-$mail = $_POST['mail'];
-$contact = $_POST['contact'];
-$newsletter = $_POST['newsletter'];
+$plz = intval($_POST['plz']);
+$mail = pg_escape_string($_POST['mail']);
+$contact = pg_escape_string($_POST['contact']);
+$newsletter = intval($_POST['newsletter']);
+$count = intval($_POST['count']);
+
+if (!is_int(intval($count))) {
+	if ($count == "" || $count == 0) {
+		$count = 1;
+	} else {
+	$error = "Bitte eine richtige Unterstützeranzahl angeben!";
+	goto end;
+	}
+}
 
 if(intval($plz)) {
-	if($plz < 1000 || $plz > 9999) {$error = "Bitte korrekte PLZ eingeben!";}
-} else {$error = "Bitte korrekte PLZ eingeben!";}
+	if($plz < 1000 || $plz > 9999) {$error = "Bitte korrekte PLZ eingeben!";
+	goto end;}
+} else {$error = "Bitte korrekte PLZ eingeben!";
+	goto end;}
 
 if(isValidEmail($mail)) {
-} else {$error = "Bitte korrekte E-Mail-Adresse eingeben!";}
+} else {$error = "Bitte korrekte E-Mail-Adresse eingeben!";
+	goto end;}
 
 if($newsletter){
 	$ch = curl_init();
@@ -32,17 +48,17 @@ if($newsletter){
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
 	curl_exec($ch);
 }
-        $contact = pg_escape_string($contact);
-        $mail = pg_escape_string($mail);
-        echo $contact;
-        $query = "INSERT INTO ues (plz, email, comment) VALUES ($plz, '$mail', '$contact');";
+        $query = "INSERT INTO ues (plz, email, comment, count) VALUES ($plz, '$mail', '$contact', '$count');";
   
-        $result = pg_query($dbconn, $query) or die('Einragung fehlgeschlagen: ' . pg_last_error());
+        $result = pg_query($dbconn, $query) or die('Einragung fehlgeschlagen.');//: ' . pg_last_error());
 
 //$new_ue = mysql_query(
 //        "INSERT INTO ues (plz, email, comment) VALUES ($plz, $mail, mysql_real_escape_string($contact));");
 
     pg_close($dbconn);
+
+$h1 = '        <h1>Danke für deine Unterstützung!</h1>';
+$ausblenden = true;
 
 end:
 ?>
@@ -105,6 +121,10 @@ end:
       .marketing p + h4 {
         margin-top: 28px;
       }
+
+      <?if ($ausblenden) {
+	echo ".ausblenden {display:none;}";
+      }?>
     </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -120,18 +140,17 @@ end:
       <hr>
 
       <div class="jumbotron">
-        <h1>Unterstütze die Piraten!</h1>
-        <p class="lead">Um bei den nächsten Wahlen antreten zu können brauchen die Piraten deine Unterstützung!</p>
+	<?echo $h1;?>
       </div>
 
-      <hr>
+      <hr class="ausblenden">
 
-      <div class="row-fluid marketing">
+      <div class="row-fluid marketing ausblenden">
         <div class="span6">
           <h4>Wie kann ich die Piraten unterstützen?</h4>
           <p>Für einen Wahlantritt brauchen die Piraten eine gewisse Anzahl an Unterstützungserklärungen. Für die Abgabe dieser Erklärungen gibt es nur ein kurzes Zeitfenster vor der Nationalratswahl und um dieses effektiv nutzen zu können, bitten wir dich jetzt dich zu registrieren. Am Beginn des Zeitfensters schicken wir dir dann ein vorausgefülltes Formular und die genauen Schritte, die notwendig sind, um uns eine gültige Unterstützungerklärung zu kommen zu lassen.</p>
 					<h4>Kann ich euch auch anders unterstützen?</h4>
-					<p>Ja, du kannst auch direkt bei uns <a href="http://www.piratenpartei.at/mitmachen">mitmachen</a>, uns deine Ideen zukommen lassen oder uns finanziell unterstützen.</p>
+					<p>Ja, du kannst auch direkt bei uns <a href="http://www.piratenpartei.at/mitmachen">mitmachen</a>, uns <a href="http://initiative.piratenpartei.at">deine Ideen zukommen lassen</a> oder uns <a href="https://www.piratenpartei.at/mitmachen/spenden">finanziell unterstützen</a>.</p>
         </div>
 
         <div class="span6" id="formular">
@@ -139,6 +158,8 @@ end:
 	<form action="index.php" method="post">
                 <h5>Gib bitte deine PLZ an:</h5>
                 <input type="text" name="plz" />
+		<h5>Ich bringe noch ... weitere Unterstützungserklärungen aus meinem Bundesland:</h5>
+		<input type="text" name="count"/>
                 <h5>Deine E-Mail-Adresse:</h5>
                 <input type="text" name="mail" />
                 <h5>Sonstige Kontaktmöglichkeiten (optional):</h5>
@@ -156,10 +177,10 @@ end:
       </div>
 
       <hr>
+    </div> <!-- /container -->
 <?php
 include 'diagrams.php';
 ?>
-    </div> <!-- /container -->
     </div> <!-- #white-container -->
 
     <div class="container-narrow" style="color:white;">
