@@ -17,13 +17,15 @@ $contact = pg_escape_string($_POST['contact']);
 $newsletter = intval($_POST['newsletter']);
 $count = intval($_POST['count']);
 
-if (!is_int(intval($count))) {
-	if ($count == "" || $count == 0) {
+if (is_int(intval($count))) {
+	if ($count == "" || $count <= 0) {
 		$count = 1;
 	} else {
+		$count += 1;
+	}
+} else {
 	$error = "Bitte eine richtige Unterstützeranzahl angeben!";
 	goto end;
-	}
 }
 
 if(intval($plz)) {
@@ -57,7 +59,8 @@ if($newsletter){
 
     pg_close($dbconn);
 
-$h1 = '        <h1>Danke für deine Unterstützung!</h1>';
+$h1 = '        <h1>Danke für deine Unterstützung!</h1>
+        <p class="lead">Wir werden dich im Juli kontaktieren, wenn die heiße Phase beginnt. Dann bitten wir dich und deine Freunde auf eurem Gemeindeamt unsere Unterst&uuml;tzungserklärungen zu unterschreiben. Am besten gemeinsam.</p>';
 $ausblenden = true;
 
 end:
@@ -143,7 +146,7 @@ end:
 	<?echo $h1;?>
       </div>
 
-      <hr class="ausblenden">
+      <hr>
 
       <div class="row-fluid marketing ausblenden">
         <div class="span6">
