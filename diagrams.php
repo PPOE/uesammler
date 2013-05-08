@@ -94,7 +94,7 @@ $dbconn = pg_connect("dbname=uesammler")
 ?>
 
     <!--Load the AJAX API-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
@@ -133,7 +133,7 @@ $dbconn = pg_connect("dbname=uesammler")
       }
 
     $(function() {
-	$url = 'http://initiative.piratenpartei.at/uesammler/output.php';
+	$url = 'https://initiative.piratenpartei.at/uesammler/output.php';
 	$.getJSON($url, function(data) {
 		drawRegionsMap(data);
 	});
@@ -141,7 +141,7 @@ $dbconn = pg_connect("dbname=uesammler")
 
     function drawRegionsMap(json) {
 	$.each(json, function(item, line) {
-	    line[4] = (line[1] / line[3]) * 100, line[1];
+	    line[4] = Number(((line[1] / line[3]) * 100).toFixed(2)), line[1];
 	    line[5] = line[1] + ' von ' + line[3] + ' (' + line[4] + '%)'
 	});
 
