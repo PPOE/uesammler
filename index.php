@@ -165,16 +165,16 @@ end:
 	  <?if(isset($error)){echo '<div class="alert alert-error">'.$error.'</div>';}?>
 	<form action="index.php" method="post">
                 <h5>Gib bitte deine PLZ an:</h5>
-                <input type="text" name="plz" />
+                <input type="number" name="plz" required="required" min="1000" max="9999"/>
 		<h5>Ich bringe noch ... weitere Unterstützungserklärungen aus meinem Bundesland:</h5>
-		<input type="text" name="count"/>
+		<input type="number" name="count"/>
                 <h5>Deine E-Mail-Adresse:</h5>
-                <input type="text" name="mail" />
+                <input type="email" name="mail" required="required"/>
                 <h5>Sonstige Kontaktmöglichkeiten (optional):</h5>
                 <input type="text" name="contact" />
-								<label class="checkbox">
-									<input type="checkbox" name="newsletter" checked="checked"> Newsletter abonnieren?
-								</label>
+		<label class="checkbox">
+			<input type="checkbox" name="newsletter" checked="checked"> Newsletter abonnieren?
+		</label>
             <p>
 	    <input type="hidden" value="true" name="submit"/>
             <input class="btn btn-primary" type="submit" value="Senden" />
