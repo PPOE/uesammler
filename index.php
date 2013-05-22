@@ -5,7 +5,7 @@ if (empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) || $_SERVER['HTTP_X_FORWARDED_PR
       return;
 }
 
-$h1 = '        <h1>Unterstütze die Piraten!</h1>
+$h1 = '        <h1>Unter&shy;stütze die Piraten!</h1>
         <p class="lead">Um bei den nächsten Wahlen antreten zu können brauchen die Piraten deine Unterstützung!</p>';
 
 require 'config.php';
@@ -64,7 +64,7 @@ if($newsletter){
 
     pg_close($dbconn);
 
-$h1 = '        <h1>Danke für deine Unterstützung!</h1>
+$h1 = '        <h1>Danke für deine Unter&shy;stützung!</h1>
         <p class="lead">Wir werden dich im Juli kontaktieren, wenn die heiße Phase beginnt. Dann bitten wir dich und deine Freunde auf eurem Gemeindeamt unsere Unterst&uuml;tzungserklärungen zu unterschreiben. Am besten gemeinsam.</p>';
 $ausblenden = true;
 
