@@ -23,8 +23,11 @@ $newsletter = intval($_POST['newsletter']);
 $count = intval($_POST['count']);
 
 if (is_int(intval($count))) {
-	if ($count == "" || $count <= 0) {
+	if ($count == "") {
 		$count = 1;
+	} elseif ($count <= 0) {
+		$error = "Bitte eine positive Unterstützeranzahl angeben!";
+		goto end;
 	} else {
 		$count += 1;
 	}
