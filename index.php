@@ -6,7 +6,7 @@ if (empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) || $_SERVER['HTTP_X_FORWARDED_PR
 }
 
 $h1 = '        <h1>Unter&shy;stütze die Piraten!</h1>
-        <p class="lead">Um bei den nächsten Wahlen antreten zu können brauchen die Piraten deine Unterstützung!</p>';
+        <p class="lead">Um bei der Nationalratswahl antreten zu können brauchen die Piraten deine Unterstützung!</p>';
 
 require 'config.php';
 
@@ -159,7 +159,7 @@ end:
       <div class="row-fluid marketing ausblenden">
         <div class="span6">
           <h4>Wie kann ich die Piraten unterstützen?</h4>
-          <p>Für einen Wahlantritt brauchen die Piraten eine gewisse Anzahl an Unterstützungserklärungen. Für die Abgabe dieser Erklärungen gibt es nur ein kurzes Zeitfenster vor der Nationalratswahl und um dieses effektiv nutzen zu können, bitten wir dich jetzt dich zu registrieren. Am Beginn des Zeitfensters schicken wir dir dann ein vorausgefülltes Formular und die genauen Schritte, die notwendig sind, um uns eine gültige Unterstützungerklärung zu kommen zu lassen.</p>
+          <p>Für einen Wahlantritt bei der Nationalratswahl wahr brauchen die Piraten bundesweit 2600 Unterstützungserklärungen. Für die Abgabe dieser Erklärungen gibt es nur ein kurzes Zeitfenster vor der Nationalratswahl und um dieses effektiv nutzen zu können, bitten wir dich jetzt dich zu registrieren. Am Beginn des Zeitfensters schicken wir dir dann ein vorausgefülltes Formular und die genauen Schritte, die notwendig sind, um uns eine gültige Unterstützungerklärung zu kommen zu lassen.</p>
 					<h4>Kann ich euch auch anders unterstützen?</h4>
 					<p>Ja, du kannst auch direkt bei uns <a href="https://www.piratenpartei.at/mitmachen">mitmachen</a>, uns <a href="https://initiative.piratenpartei.at">deine Ideen zukommen lassen</a> oder uns <a href="https://www.piratenpartei.at/mitmachen/spenden">finanziell unterstützen</a>.</p>
         </div>
