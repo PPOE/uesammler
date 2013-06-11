@@ -59,7 +59,7 @@ if($newsletter){
 	curl_exec($ch);
 }
         $query = "INSERT INTO ues (plz, email, comment, count) VALUES ($plz, '$mail', '$contact', '$count');";
-  
+
         $result = pg_query($dbconn, $query) or die('Einragung fehlgeschlagen.');//: ' . pg_last_error());
 
 //$new_ue = mysql_query(
@@ -77,15 +77,16 @@ end:
 
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <title>Unterstützungserklärungen</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Piratenpartei Österreichs">
 
-    <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+<head>
+	<meta charset="utf-8" />
+	<title>Unterstützungserklärungen</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Piratenpartei Österreichs" />
+
+	<!-- Le styles -->
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="css/bootstrap-responsive.css" rel="stylesheet" />
     <style type="text/css">
       body {
 	background-color: #4c2582;
@@ -133,9 +134,9 @@ end:
         margin-top: 28px;
       }
 
-      <?if ($ausblenden) {
+      <?php if ($ausblenden) {
 	echo ".ausblenden {display:none;}";
-      }?>
+      } ?>
     </style>
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
