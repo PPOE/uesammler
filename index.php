@@ -138,73 +138,64 @@ end:
       }?>
     </style>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
 
-  <body>
-    <div id="white-container">
-    <div class="container-narrow">
+<body>
+	<div id="white-container">
+		<div class="container-narrow">
+			<hr />
+			<div class="jumbotron">
+				<?php echo $h1; ?>
+			</div>
+			<hr />
+			<div class="row-fluid marketing ausblenden">
+				<div class="span6">
+					<h4>Wie kann ich die Piraten unterstützen?</h4>
+					<p>Für einen Wahlantritt bei der Nationalratswahl brauchen die Piraten bundesweit 2600 Unterstützungserklärungen. Für die Abgabe dieser Erklärungen gibt es nur ein kurzes Zeitfenster vom 09. Juli bis 02. August, in dem du am Gemeindeamt für mehr Auswahl bei der Wahl unterschreiben kannst. Damit wir diese kurze Frist effektiv nutzen können, bitten wir dich jetzt dich zu registrieren. Kurz vor Beginn des Zeitfensters schicken wir dir dann eine Erinnerung und das Formular für die Unterstützungserklärung sowie die genauen Schritte, die notwendig sind, um uns eine gültige Unterstützungerklärung zu kommen zu lassen.</p>
+					<h4>Kann ich euch auch anders unterstützen?</h4>
+					<p>Ja, du kannst auch direkt bei uns <a href="https://www.piratenpartei.at/mitmachen">mitmachen</a>, uns <a href="https://initiative.piratenpartei.at">deine Ideen zukommen lassen</a> oder uns <a href="https://www.piratenpartei.at/mitmachen/spenden">finanziell unterstützen</a>.</p>
+				</div>
+				<div class="span6" id="formular">
+					<?php if(isset($error)){echo '<div class="alert alert-error">'.$error.'</div>';}?>
+					<form action="index.php" method="post">
+						<h5>Gib bitte deine PLZ an:</h5>
+						<input type="number" name="plz" required="required" min="1000" max="9999" />
+						<h5>Ich bringe noch ... weitere Unterstützungserklärungen aus meinem Bundesland:</h5>
+						<input type="number" name="count" />
+						<h5>Deine E-Mail-Adresse:</h5>
+						<input type="email" name="mail" required="required" />
+						<h5>Sonstige Kontaktmöglichkeiten (optional):</h5>
+						<input type="text" name="contact" />
+						<label class="checkbox">
+							<input type="checkbox" name="newsletter" checked="checked" /> Newsletter abonnieren?
+						</label>
+						<p>
+							<input type="hidden" value="true" name="submit" />
+							<input class="btn btn-primary" type="submit" value="Senden" />
+							<input class="btn" type="reset" value="Zurücksetzen" />
+						</p>
+					</form>
+				</div>
+			</div>
+			<hr />
+		</div> <!-- /container -->
+		<?php include 'diagrams.php'; ?>
+	</div> <!-- #white-container -->
 
-      <hr>
+	<div class="container-narrow" style="color:white;">
+		<div class="footer">
+	    <p>Piratenpartei Österreichs, Birkengasse 55, 3100 St.Pölten</p>
+			<p>Für den Inhalt verantwortlich: bv@piratenpartei.at · bgf@piratenpartei.at</p>
+		</div>
+	</div>
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/bootstrap.js"></script>
+</body>
 
-      <div class="jumbotron">
-	<?echo $h1;?>
-      </div>
-
-      <hr>
-
-      <div class="row-fluid marketing ausblenden">
-        <div class="span6">
-          <h4>Wie kann ich die Piraten unterstützen?</h4>
-          <p>Für einen Wahlantritt bei der Nationalratswahl brauchen die Piraten bundesweit 2600 Unterstützungserklärungen. Für die Abgabe dieser Erklärungen gibt es nur ein kurzes Zeitfenster vom 10. - 26. Juli, in dem du am Gemeindeamt für mehr Auswahl bei der Wahl unterschreiben kannst. Damit wir diese kurze Frist effektiv nutzen können, bitten wir dich jetzt dich zu registrieren. Kurz vor Beginn des Zeitfensters schicken wir dir dann eine Erinnerung und das Formular für die Unterstützungserklärung sowie die genauen Schritte, die notwendig sind, um uns eine gültige Unterstützungerklärung zu kommen zu lassen.</p>
-          <h4>Kann ich euch auch anders unterstützen?</h4>
-          <p>Ja, du kannst auch direkt bei uns <a href="https://www.piratenpartei.at/mitmachen">mitmachen</a>, uns <a href="https://initiative.piratenpartei.at">deine Ideen zukommen lassen</a> oder uns <a href="https://www.piratenpartei.at/mitmachen/spenden">finanziell unterstützen</a>.</p>
-        </div>
-
-        <div class="span6" id="formular">
-	  <?if(isset($error)){echo '<div class="alert alert-error">'.$error.'</div>';}?>
-	<form action="index.php" method="post">
-                <h5>Gib bitte deine PLZ an:</h5>
-                <input type="number" name="plz" required="required" min="1000" max="9999"/>
-		<h5>Ich bringe noch ... weitere Unterstützungserklärungen aus meinem Bundesland:</h5>
-		<input type="number" name="count"/>
-                <h5>Deine E-Mail-Adresse:</h5>
-                <input type="email" name="mail" required="required"/>
-                <h5>Sonstige Kontaktmöglichkeiten (optional):</h5>
-                <input type="text" name="contact" />
-		<label class="checkbox">
-			<input type="checkbox" name="newsletter" checked="checked"> Newsletter abonnieren?
-		</label>
-            <p>
-	    <input type="hidden" value="true" name="submit"/>
-            <input class="btn btn-primary" type="submit" value="Senden" />
-            <input class="btn" type="reset" value="Zurücksetzen" />
-            </p>
-        </form>
-        </div>
-      </div>
-
-      <hr>
-    </div> <!-- /container -->
-<?php
-include 'diagrams.php';
-?>
-    </div> <!-- #white-container -->
-
-    <div class="container-narrow" style="color:white;">
-      <div class="footer">
-	<p>Piratenpartei Österreichs, Birkengasse 55, 3100 St.Pölten</p>
-	<p>Für den Inhalt verantwortlich: bv@piratenpartei.at · bgf@piratenpartei.at</p>
-      </div>
-    </div>
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
-
-  </body>
 </html>
-
