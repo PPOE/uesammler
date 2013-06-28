@@ -196,7 +196,7 @@ include 'diagrams.php';
 
     <div class="container-narrow" style="color:white;">
       <div class="footer">
-	<p>Piratenpartei Österreichs, Lange Gasse 1/4, 1080 Wien</p>
+	<p>Piratenpartei Österreichs, Birkengasse 55, 3100 St.Pölten</p>
 	<p>Für den Inhalt verantwortlich: bv@piratenpartei.at · bgf@piratenpartei.at</p>
       </div>
     </div>
