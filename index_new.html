@@ -59,8 +59,8 @@
 <script type="text/javascript">
 function download(d) {
         if (d == '') return;
-        if (d == 'Tirol') {window.open('http://www.piratenpartei-tirol.org/Dokumente/UE.pdf'); return;}
-        window.open('http://www.piratenpartei.at/wp-content/uploads/2013/07/' + d);
+        if (d == 'Tirol') {window.open('http://www.piratenpartei-tirol.org/Dokumente/UE.pdf', target="_blank"); return;}
+        window.open('http://www.piratenpartei.at/wp-content/uploads/2013/07/' + d, target="_blank");
 }
 </script>
 
@@ -90,7 +90,7 @@ function download(d) {
 
       <div class="jumbotron">
         <h1>Jetzt unter&shy;st&uuml;tzen!</h1>
-        <p class="lead">Jetzt ist die Zeit gekommen: Jeder und jede Wahlberechtigte kann im jeweiligen Gemeindeamt oder Magistrat ab Dienstag, 9. Juli eine Unterst&uuml;tzungserkl&auml;rung f&uuml;r die Piratenpartei ausf&uuml;llen.</p>
+        <p class="lead">Jetzt ist die Zeit gekommen: Jede und jeder Wahlberechtigte kann im jeweiligen Gemeindeamt oder Magistrat ab Dienstag, dem 9. Juli 2013, eine Unterst&uuml;tzungserkl&auml;rung f&uuml;r die Piratenpartei ausf&uuml;llen.</p>
         <a class="btn btn-large btn-success" href="#sogehts">Und so geht's!</a>
       </div>
 
@@ -99,20 +99,22 @@ function download(d) {
       <div class="row-fluid marketing">
         <div class="span6">
           <h4>Schritt 1. Formular ausdrucken</h4>
-          <p>Bitte drucke ein Formular f&uuml;r deinen Landeswahlkreis aus: 
-<select name="download" onChange="download(this.value)">
-<option value="">W&auml;hle ein Bundesland</option>
-<option value="UE-NRW2013_PP_Bgld.pdf">Burgenland</option>
-<option value="UE-NRW2013_PP_Ktn.pdf">K&auml;rnten</option>
-<option value="UE-NRW2013_PP_NOE.pdf">Nieder&ouml;sterreich</option>
-<option value="UE-NRW2013_PP_OOE.pdf">Ober&ouml;sterreich</option>
-<option value="UE-NRW2013_PP_Sbg.pdf">Salzburg</option>
-<option value="UE-NRW2013_PP_Stmk.pdf">Steiermark</option>
-<option value="Tirol">Tirol</option>
-<option value="UE-NRW2013_PP_Vbg.pdf">Vorarlberg</option>
-<option value="UE-NRW2013_PP_Wien.pdf">Wien</option>
-</select></p>
-
+          <p>Bitte drucke ein Formular f&uuml;r deinen Landeswahlkreis aus:</p>
+          <p>
+            <select name="download" id="download" style="width:100%;">
+              <option value="">W&auml;hle ein Bundesland</option>
+              <option value="UE-NRW2013_PP_Bgld.pdf">Burgenland</option>
+              <option value="UE-NRW2013_PP_Ktn.pdf">K&auml;rnten</option>
+              <option value="UE-NRW2013_PP_NOE.pdf">Nieder&ouml;sterreich</option>
+              <option value="UE-NRW2013_PP_OOE.pdf">Ober&ouml;sterreich</option>
+              <option value="UE-NRW2013_PP_Sbg.pdf">Salzburg</option>
+              <option value="UE-NRW2013_PP_Stmk.pdf">Steiermark</option>
+              <option value="Tirol">Tirol</option>
+              <option value="UE-NRW2013_PP_Vbg.pdf">Vorarlberg</option>
+              <option value="UE-NRW2013_PP_Wien.pdf">Wien</option>
+            </select>
+            <button class="btn btn-primary btn-block" type="button" onClick="download(document.getElementById('download').value)">Herunterladen</button>
+          </p>
           <h4>Schritt 2. Ausf&uuml;llen</h4>
           <p>Kontrolliere, ob das richtige Bundesland am Zettel steht und trage deinen Namen, Wohnort und dein Geburtsdatum ein. Achtung: Noch nicht unterschreiben!</p>
 
