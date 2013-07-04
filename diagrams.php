@@ -94,7 +94,7 @@ $dbconn = pg_connect("dbname=uesammler")
 ?>
 
     <!--Load the AJAX API-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="jquery.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
 
