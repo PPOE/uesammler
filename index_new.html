@@ -20,8 +20,7 @@
         margin: 0 auto;
         max-width: 700px;
 	background-color: white;
-	padding: 100px;
-	padding-top: 20px;
+	padding: 20px 100px;
       }
       .container-narrow > hr {
         margin: 30px 0;
@@ -57,10 +56,11 @@
     <![endif]-->
 
 <script type="text/javascript">
-function download(d) {
+function downloadChange() {
+        var d = document.getElementById('download').value;
         if (d == '') return;
-        if (d == 'Tirol') {window.open('http://www.piratenpartei-tirol.org/Dokumente/UE.pdf'); return;}
-        window.open('http://www.piratenpartei.at/wp-content/uploads/2013/07/' + d);
+        if (d == 'Tirol') {document.getElementById('download_button').href = 'http://www.piratenpartei-tirol.org/Dokumente/UE.pdf'; return;}
+        document.getElementById('download_button').href = 'http://www.piratenpartei.at/wp-content/uploads/2013/07/' + d;
 }
 </script>
 
@@ -101,7 +101,7 @@ function download(d) {
           <h4>Schritt 1. Formular ausdrucken</h4>
           <p>Bitte drucke ein Formular f&uuml;r deinen Landeswahlkreis aus:</p>
           <p>
-            <select name="download" id="download" style="width:100%;">
+            <select name="download" id="download" onchange="downloadChange()" style="width:100%;">
               <option value="">W&auml;hle ein Bundesland</option>
               <option value="UE-NRW2013_PP_Bgld.pdf">Burgenland</option>
               <option value="UE-NRW2013_PP_Ktn.pdf">K&auml;rnten</option>
@@ -113,7 +113,7 @@ function download(d) {
               <option value="UE-NRW2013_PP_Vbg.pdf">Vorarlberg</option>
               <option value="UE-NRW2013_PP_Wien.pdf">Wien</option>
             </select>
-            <button class="btn btn-primary btn-block" type="button" onClick="download(document.getElementById('download').value)">Herunterladen</button>
+            <a id="download_button" href="#sogehts" class="btn btn-primary btn-block" type="button">Herunterladen</a>
           </p>
           <h4>Schritt 2. Ausf&uuml;llen</h4>
           <p>Kontrolliere, ob das richtige Bundesland am Zettel steht und trage deinen Namen, Wohnort und dein Geburtsdatum ein. Achtung: Noch nicht unterschreiben!</p>
@@ -153,7 +153,7 @@ function download(d) {
           <h4>Tirol</h4>
             <p>Per Post: Piratenpartei, Obexerstra&szlig;e 5a, 6080 Igls</p>
           <h4>Vorarlberg</h4>
-            <p>Per Post: Piratenpartei, Achsiedlingsstra&szlig;e 87 Top 17, 6900 Bregenz</p>
+            <p>Per Post: Piratenpartei, Achsiedlungsstra&szlig;e 87 Top 17, 6900 Bregenz</p>
           <h4>Wien</h4>
             <p>Per Post: Piratenpartei, Schadinagasse 3/1, 1170 Wien</p>
             <p>Oder persönlich: Bürgerbüro, Garnisongasse 22, 1090 Wien. Täglich von 9:00 bis 17:00 Uhr, Freitags bis 13:00 Uhr - das Büro kann aber bei Veranstaltungen auch stundenweise unbesetzt sein. Bitte deshalb vor Abgabe kurz unter 0650 41 77 333 anrufen. Danke!</p>
