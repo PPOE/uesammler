@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <title>Jetzt unterst&uuml;tzen &middot; Piratenpartei &Ouml;sterreichs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Jetzt unterst&uuml;tzen: Die Piratenpartei ben&ouml;tigt 2600 Unterst&uuml;tzungserkl&auml;rungen, um bei der Nationalratswahl teilnehmen zu k&ouml;nnen.">
+    <meta name="author" content="Piratenpartei &Ouml;sterreichs">
+    <link rel="shortcut icon" href="http://www.piratenpartei.at/wp-content/themes/Piratenkleider-PPOE/favicon.ico" />
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -55,6 +56,14 @@
       <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
+<script type="text/javascript">
+function download(d) {
+        if (d == '') return;
+        if (d == 'Tirol') {window.open('http://www.piratenpartei-tirol.org/Dokumente/UE.pdf'); return;}
+        window.open('http://www.piratenpartei.at/wp-content/uploads/2013/07/' + d);
+}
+</script>
+
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
@@ -71,8 +80,10 @@
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#sogehts">So geht's</a></li>
+          <li><a href="#wohin">Adressen</a></li>
+          <li><a href="#impressum">Impressum</a></li>
         </ul>
-        <h3 class="muted">Piratenpartei &Ouml;sterreichs</h3>
+        <h3 class="muted">Piratenpartei &Ouml;sterreichs</h4>
       </div>
 
       <hr>
@@ -88,7 +99,19 @@
       <div class="row-fluid marketing">
         <div class="span6">
           <h4>Schritt 1. Formular ausdrucken</h4>
-          <p>Bitte drucke ein Formular f&uuml;r deinen Landeswahlkreis aus. *Dropdown*</p>
+          <p>Bitte drucke ein Formular f&uuml;r deinen Landeswahlkreis aus: 
+<select name="download" onChange="download(this.value)">
+<option value="">W&auml;hle ein Bundesland</option>
+<option value="UE-NRW2013_PP_Bgld.pdf">Burgenland</option>
+<option value="UE-NRW2013_PP_Ktn.pdf">K&auml;rnten</option>
+<option value="UE-NRW2013_PP_NOE.pdf">Nieder&ouml;sterreich</option>
+<option value="UE-NRW2013_PP_OOE.pdf">Ober&ouml;sterreich</option>
+<option value="UE-NRW2013_PP_Sbg.pdf">Salzburg</option>
+<option value="UE-NRW2013_PP_Stmk.pdf">Steiermark</option>
+<option value="Tirol">Tirol</option>
+<option value="UE-NRW2013_PP_Vbg.pdf">Vorarlberg</option>
+<option value="UE-NRW2013_PP_Wien.pdf">Wien</option>
+</select></p>
 
           <h4>Schritt 2. Ausf&uuml;llen</h4>
           <p>Kontrolliere, ob das richtige Bundesland am Zettel steht und trage deinen Namen, Wohnort und dein Geburtsdatum ein. Achtung: Noch nicht unterschreiben!</p>
@@ -101,15 +124,41 @@
           <h4>Schritt 4. Vor dem Beamten unterschreiben</h4>
           <p>Unterschreibe die Unterst&uuml;tzungserkl&auml;rung direkt vor dem Beamten und lass dir die Unterst&uuml;tzungserkl&auml;rung abstempeln. Du musst auf gar keinen Fall Geb&uuml;hren entrichten! Wichtig: Nimm die Unterst&uuml;tzungserkl&auml;rung auch wieder mit!</p>
 
-          <h4>Schritt 5. An uns senden</h4>
-          <p>Sende deine unterschriebene und best&auml;tigte Unterst&uuml;tzungserkl&auml;rung bis sp&auml;testens 26. Juli per Post an die Adresse deiner Landesorganisation. *Dropdown*</p>
-
-          <h4>Oder: Bring sie pers&ouml;nlich zu uns</h4>
-          <p>Du kannst deine Unterst&uuml;tzungserkl&auml;rung auch direkt bei uns abgeben. Orte,...</p>
+          <h4>Schritt 5. An uns senden oder vorbeibringen</h4>
+          <p>Sende deine unterschriebene und best&auml;tigte Unterst&uuml;tzungserkl&auml;rung bis sp&auml;testens 26. Juli per Post an die Adresse deiner Landesorganisation oder bring sie persönlich vorbei.</p>
         </div>
       </div>
 
-      <hr>
+      <hr id="wohin">
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h2>Adressen</h2>
+          <h4>Burgenland</h4>
+            <p>Per Post: Piratenpartei, Schadinagasse 3/1, 1170 Wien</p>
+          <h4>K&auml;rnten</h4>
+            <p>Per Post: Piratenpartei, Lederergasse 11, 9500 Villach</p>
+          <h4>Nieder&ouml;sterreich</h4>
+            <p>Per Post: Piratenpartei, Birkengasse 55, 3100 St. P&ouml;lten</p>
+          <h4>Ober&ouml;sterreich</h4>
+            <p>Per Post: Piratenpartei, Thomas-Bernhard-Weg 13, 4020 Linz</p>
+          <h4>Salzburg</h4>
+            <p>Per Post: Piratenpartei, Alpenstra&szlig;e 38, 5020 Salzburg</p>
+        </div>
+        <div class="span6">
+          <h4>Steiermark</h4>
+            <p>Per Post: Piratenpartei, Radetzkystra&szlig;e 3/1, 8010 Graz</p>
+          <h4>Tirol</h4>
+            <p>Per Post: Piratenpartei, Obexerstra&szlig;e 5a, 6080 Igls</p>
+          <h4>Vorarlberg</h4>
+            <p>Per Post: Piratenpartei, Achsiedlingsstra&szlig;e 87 Top 17, 6900 Bregenz</p>
+          <h4>Wien</h4>
+            <p>Per Post: Piratenpartei, Schadinagasse 3/1, 1170 Wien</p>
+            <p>Oder persönlich: Bürgerbüro, Garnisongasse 22, 1090 Wien. Täglich von 9:00 bis 17:00 Uhr, Freitags bis 13:00 Uhr - das Büro kann aber bei Veranstaltungen auch stundenweise unbesetzt sein. Bitte deshalb vor Abgabe kurz unter 0650 41 77 333 anrufen. Danke!</p>
+        </div>
+      </div>
+
+      <hr id="impressum">
 
       <div class="footer">
         <p>Impressum: Piratenpartei &Ouml;sterreichs, Birkengasse 55, 3100 St. P&ouml;lten</p>
