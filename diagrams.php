@@ -141,8 +141,8 @@ $dbconn = pg_connect("dbname=uesammler")
 
     function drawRegionsMap(json) {
 	$.each(json, function(item, line) {
-	    line[4] = Number(((line[1] / line[3]) * 100).toFixed(2)), line[1];
-	    line[5] = line[1] + ' von ' + line[3] + ' (' + line[4] + '%)'
+	    line[4] = Number(((line[2] / line[3]) * 100).toFixed(2)), line[1];
+	    line[5] = line[2] + ' von ' + line[3] + ' (' + line[4] + '%)'
 	});
 
 	var data = new google.visualization.DataTable();
